@@ -535,31 +535,18 @@ function sortByAsc(arr) {
  */
 function shuffleChar(str, iterations) {
   let string = str;
-  let iter = iterations;
 
-  const len = string.length;
-  while (iter > 0) {
-    let evenChars = '';
+  for (let i = 0; i < iterations; i += 1) {
     let oddChars = '';
-
-    for (let i = 0; i < len; i += 1) {
-      if (i % 2 === 0) {
-        evenChars += string[i];
+    let evenChars = '';
+    for (let j = 0; j < string.length; j += 1) {
+      if (j % 2 === 0) {
+        evenChars += string[j];
       } else {
-        oddChars += string[i];
+        oddChars += string[j];
       }
     }
-
-    let newStr = '';
-    for (let i = 0; i < evenChars.length; i += 1) {
-      newStr += evenChars[i];
-    }
-    for (let i = 0; i < oddChars.length; i += 1) {
-      newStr += oddChars[i];
-    }
-
-    string = newStr;
-    iter -= 1;
+    string = evenChars + oddChars;
   }
   return string;
 }
